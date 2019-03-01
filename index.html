@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!--<meta http-equiv="refresh" content="10; URL='https://jobmg.info'" />-->
+	<style>
+		h1, h2, h3, h4, h5, h6 {
+			font-family: "Segoe UI",Arial,sans-serif;
+			font-weight: 400;
+			margin: 10px 0;
+		}
+		html, body {
+			font-family: Verdana,sans-serif;
+			font-size: 15px;
+			line-height: 1.5;
+		}
+	</style>
+	<title>폐쇄공간 이사 안내</title>
+	<script>
+		var count = 10;
+		var new_url = "http://jobmg.info";
+		var stop = 0;
+		
+		//페이지의 GET 파라메터를 가져오는 옵션. 일단 페이지와 태그만을 그대로 두고 신주소로만 바꾸는 기능이다.
+		// 그러면 요청된 페이지와 태그에 대해 도메인만 바꾸고 그대로 리다이렉트 되어 요청한 대상을 볼 수 있게 된다.
+		function addURLPrm(){
+			var p_prm = getParameterByName('p');
+			var tag_prm = getParameterByName('tag');
+			if(p_prm != ""){
+				new_url = new_url + '/?p=' + p_prm;
+			}
+			else if(tag_prm != "") {
+				new_url = new_url + '/?tag=' + tag_prm;
+			}
+		}
+		
+		//파라미터 명에 대한 값을 리턴.
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+		
+		//시간 카운터
+		function countDown(){
+			var timer = document.getElementById("timer");
+			if(stop == 0 && count > 0){
+				count--;
+				timer.innerHTML = "<strong>"+count+"</strong> 초 후 폭파.. 아니;; ";
+				setTimeout("countDown()", 1000);
+			}
+			else if (stop == 1){
+
+			}
+			else{
+				window.location.href = new_url
+			}
+		}
+		
+		//시간 카운터의 일시중지
+		function countStop(){
+			if(stop == 0){
+				document.getElementById("btnStop").value = "아사히 선배! 시간을 흘려주세요!";
+				stop = 1;
+			}
+			else{
+				document.getElementById("btnStop").value = "아사히 선배! 시간을 멈춰주세요!";
+				stop = 0;
+				countDown();
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<span id="hid_prm"><script type="text/javascript">addURLPrm();</script></span>
+	<h1><span style="color: #008080;"><strong>아.. 고..고멘!&nbsp;도메인이 변경되어버렸습니다!</strong></span></h1>
+	<li>이 페이지는 약 <span id="timer"><script type="text/javascript">countDown();</script></span> 새로운 폐쇄공간의 <strong>요청하신 페이지로</strong> 리다이렉트합니다.</li>
+	<li><input type="button" id="btnStop" value="아사히 선배! 시간을 멈춰주세요!" onclick="countStop();" /></li>
+	<li>아니면 &gt;&gt;&nbsp;<strong><a title="폐쇄공간閉鎖空間" href="https://jobmg.info/" rel="home">새로운 폐쇄공간閉鎖空間</a>&nbsp;&lt;&lt;&nbsp;</strong>링크를 클릭하세요.</li>
+	<h3><p>기존의 현정경의 폐쇄공간은 폐쇄되었습니다(?)<br /> 스즈미야 하루히의 우울이 풀린 걸까요?</p></h3>
+	<p><img src="https://ncache.ilbe.com/files/attach/new/20170820/14357299/925680566/9974932494/e52dd252495520140a51957701294146.jpg" width="208" height="117" /></p>
+	<h2><p><strong>아닙니다!</strong></p></h2>
+	<h3><p>다른 곳에 폐쇄공간이 생겼을 뿐이죠! 하루히는 당신의 등에! 가슴에! 하나가 되어 살아가!</p></h3>
+	<p><img src="http://cfs4.tistory.com/upload_control/download.blog?fhandle=YmxvZzExMTk0MkBmczQudGlzdG9yeS5jb206L2F0dGFjaC8wLzk5LmpwZw%3D%3D" width="214" height="121" /></p>
+	<ul>
+	</ul>
+	<p>앞으로도 오네가이시마스~~!</p>
+</body>
+</html>
