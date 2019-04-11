@@ -17,7 +17,7 @@
 	</style>
 	<title>폐쇄공간 이사 안내</title>
 	<script>
-		var count = 10;
+		var count = 5;
 		var new_url = "http://jobmg.info";
 		var stop = 0;
 		
@@ -28,6 +28,7 @@
 			var tag_prm = getParameterByName('tag');
 			if(p_prm != ""){
 				new_url = new_url + '/?p=' + p_prm;
+				aUrl.href.value = new_url;
 			}
 			else if(tag_prm != "") {
 				new_url = new_url + '/?tag=' + tag_prm;
@@ -54,21 +55,29 @@
 
 			}
 			else{
-				window.location.href = new_url
+				window.location.href = new_url;
 			}
 		}
 		
 		//시간 카운터의 일시중지
 		function countStop(){
+			// 일시중지
 			if(stop == 0){
 				document.getElementById("btnStop").value = "아사히 선배! 시간을 흘려주세요!";
 				stop = 1;
 			}
+			//다시시작
 			else{
 				document.getElementById("btnStop").value = "아사히 선배! 시간을 멈춰주세요!";
 				stop = 0;
 				countDown();
 			}
+		}
+		
+		//직접 이동
+		function nextNewPage(obj){
+			stop = 1;
+			window.location.href = new_url;
 		}
 		
 	</script>
@@ -78,7 +87,7 @@
 	<h1><span style="color: #008080;"><strong>아.. 고..고멘!&nbsp;도메인이 변경되어버렸습니다!</strong></span></h1>
 	<li>이 페이지는 약 <span id="timer"><script type="text/javascript">countDown();</script></span> 새로운 폐쇄공간의 <strong>요청하신 페이지로</strong> 리다이렉트합니다.</li>
 	<li><input type="button" id="btnStop" value="아사히 선배! 시간을 멈춰주세요!" onclick="countStop();" /></li>
-	<li>아니면 &gt;&gt;&nbsp;<strong><a title="폐쇄공간閉鎖空間" href="https://jobmg.info/" rel="home">새로운 폐쇄공간閉鎖空間</a>&nbsp;&lt;&lt;&nbsp;</strong>링크를 클릭하세요.</li>
+	<li>아니면 &gt;&gt;&nbsp;<strong><a id="ahurl" title="폐쇄공간閉鎖空間" href="javascript:nextNewPage(this);"  rel="home">새로운 폐쇄공간閉鎖空間</a>&nbsp;&lt;&lt;&nbsp;</strong>링크를 클릭하세요.</li>
 	<h3><p>기존의 현정경의 폐쇄공간은 폐쇄되었습니다(?)<br /> 스즈미야 하루히의 우울이 풀린 걸까요?</p></h3>
 	<p><img src="https://ncache.ilbe.com/files/attach/new/20170820/14357299/925680566/9974932494/e52dd252495520140a51957701294146.jpg" width="208" height="117" /></p>
 	<h2><p><strong>아닙니다!</strong></p></h2>
